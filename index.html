@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripVoice - AI 여행 통역</title>
+    <meta name="description" content="여행 중 외국어가 막힐 때, TripVoice가 도와드립니다. 실시간 음성 인식, AI 맞춤 응답, 9개 언어 지원.">
+    <meta name="keywords" content="여행번역, AI통역, 음성번역, 실시간통역, 여행회화, 번역앱, TripVoice">
+    <meta property="og:title" content="TripVoice - AI 여행 통역">
+    <meta property="og:description" content="말하면 즉시 번역하고, AI가 자연스러운 응답까지 제안합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lasidos.github.io">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a1a2e;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+        .download-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #1a1a2e;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .download-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        .download-btn.coming-soon {
+            opacity: 0.7;
+            cursor: default;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: #f8f9ff;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+        .feature-card .icon {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Languages */
+        .languages {
+            background: #f8f9ff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .languages h2 {
+            font-size: 1.6rem;
+            margin-bottom: 28px;
+        }
+        .lang-list {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .lang-item {
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #555;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 60px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 36px;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .step-text h3 {
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+        .step-text p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .cta h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        .cta p {
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 60px 16px 48px; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero p { font-size: 1rem; }
+            .features h2, .languages h2, .how-it-works h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b6/62/3b/b6623b3b-c057-1776-b5f6-37c24d2c286f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/460x0w.webp" alt="TripVoice" class="hero-icon">
+        <h1>TripVoice</h1>
+        <p>여행 중 외국어가 막힐 때, 말하면 즉시 번역하고 AI가 자연스러운 응답까지 제안합니다.</p>
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/app/id6761470858" class="download-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                App Store
+            </a>
+            <span class="download-btn coming-soon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.97c.27.03.56-.06.83-.14.62-.2 2.02-.8 4-1.8-.03-.03-1.4-1.26-2.52-3.42-.24.03-2.43.3-3.33 2.07-.38.74-.26 1.54.19 2.17.31.42.72.69 1.18.79.2.05.42.1.65.13zm18.64 0c-.27.03-.56-.06-.83-.14-.62-.2-2.02-.8-4-1.8.03-.03 1.4-1.26 2.52-3.42.24.03 2.43.3 3.33 2.07.38.74.26 1.54-.19 2.17-.31.42-.72.69-1.18.79-.2.05-.42.1-.65.13zM12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm0 22c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"/><path d="M15.5 8H8.5l-2 4h2l-2.5 5 7-6h-3z"/></svg>
+                Google Play (Coming Soon)
+            </span>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>주요 기능</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">&#127908;</div>
+                <h3>실시간 음성 인식 & 번역</h3>
+                <p>상대방의 말을 듣고 즉시 인식하여 번역합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">&#129302;</div>
+                <h3>AI 맞춤 응답</h3>
+                <p>대화 맥락을 파악해 자연스러운 답변을 제안합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">&#128483;</div>
+                <h3>프리미엄 음성</h3>
+                <p>고품질 음성으로 원어민처럼 자연스러운 발음을 제공합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">&#127919;</div>
+                <h3>AI 미션 모드</h3>
+                <p>호텔 체크인, 주문 등 실전 상황을 연습할 수 있습니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">&#128172;</div>
+                <h3>자연스러운 대화</h3>
+                <p>버튼 하나로 원어민처럼 자연스럽게 대화하세요.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">&#128176;</div>
+                <h3>합리적인 가격</h3>
+                <p>여행 기간만큼만 구매하는 합리적인 요금제를 제공합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="languages">
+        <h2>9개 언어 지원</h2>
+        <div class="lang-list">
+            <span class="lang-item">&#127468;&#127463; English</span>
+            <span class="lang-item">&#127471;&#127477; 日本語</span>
+            <span class="lang-item">&#127464;&#127475; 中文</span>
+            <span class="lang-item">&#127467;&#127479; Fran&ccedil;ais</span>
+            <span class="lang-item">&#127466;&#127480; Espa&ntilde;ol</span>
+            <span class="lang-item">&#127470;&#127481; Italiano</span>
+            <span class="lang-item">&#127470;&#127475; हिन्दी</span>
+            <span class="lang-item">&#127480;&#127462; العربية</span>
+            <span class="lang-item">&#127472;&#127479; 한국어</span>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <h2>이렇게 사용하세요</h2>
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+                <h3>대화 시작 버튼을 누르세요</h3>
+                <p>앱을 열고 대화 모드를 시작합니다.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+                <h3>상대방의 말을 들려주세요</h3>
+                <p>실시간으로 음성을 인식하고 번역합니다.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+                <h3>AI 응답을 선택하세요</h3>
+                <p>상황에 맞는 자연스러운 응답을 골라 재생하면 끝!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>무료로 5회 체험해 보세요</h2>
+        <p>설치 후 바로 사용할 수 있습니다.</p>
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/app/id6761470858" class="download-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                App Store에서 다운로드
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 jihyeok yu. All rights reserved.</p>
+        <p><a href="/tripvoice-privacy/">개인정보 처리방침</a></p>
+    </footer>
+</body>
+</html>
