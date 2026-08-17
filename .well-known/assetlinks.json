@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "kr.publicad.imjangnote",
+      "sha256_cert_fingerprints": [
+        "ED:E4:00:5A:AC:11:F8:5F:77:4E:1F:BE:50:A8:90:69:90:1C:68:E5:81:10:59:A8:C5:40:17:B6:EC:2E:0B:6D"
+      ]
+    }
+  }
+]

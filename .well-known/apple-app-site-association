@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["96Q6452X7H.kr.publicad.imjangnote"],
+        "components": [
+          { "/": "/imjang-map/*", "comment": "단지노트 웹앱 및 초대링크(?invite=)" }
+        ]
+      }
+    ]
+  }
+}
